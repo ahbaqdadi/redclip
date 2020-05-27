@@ -40,6 +40,11 @@ class Comment
      */
     private $vote;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="comments")
+     */
+    private $post;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -113,6 +118,18 @@ class Comment
     public function setVote(?int $vote): self
     {
         $this->vote = $vote;
+
+        return $this;
+    }
+
+    public function getPost(): ?Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(?Post $post): self
+    {
+        $this->post = $post;
 
         return $this;
     }
