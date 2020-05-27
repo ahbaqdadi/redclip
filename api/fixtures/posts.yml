@@ -1,0 +1,22 @@
+App\Entity\Post:
+    posts{1..100}:
+        title: <sentence(4)>
+        text: <text()>
+        comments: ['@comments*', '@comments*', '@comments*', '@comments*']
+        vote: '<numberBetween(0, 1000)>'
+    postTest:
+        title: 'post title'
+        text: 'post text'
+        vote: '<numberBetween(0, 1000)>'
+
+App\Entity\Comment:
+    comments{1..100}:
+        description: <text()>
+        comments: ['@comments*', '@comments*', '@comments*', '@comments*']
+        vote: '<numberBetween(0, 1000)>'
+    commentTest:
+        description: 'comments description'
+        vote: '<numberBetween(0, 1000)>'
+    commentDeleteTest:
+        description: 'comment must be delete'
+        vote: '<numberBetween(0, 1000)>'        
